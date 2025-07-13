@@ -1,3 +1,0 @@
-- rewrite better package for vector store
-- test instructor calls with local ollama model
-  - utilize structured outputs
