@@ -110,7 +110,7 @@ class ChromaRag():
             query_embeddings=query_embedding,
             n_results=k
         )
-        print(results)
+
         return results["documents"][0], results["ids"][0], results["metadatas"][0]
     
     def inspect_db(self, limit=None):
