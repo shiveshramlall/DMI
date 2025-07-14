@@ -1,0 +1,251 @@
+/* === Generators.css === */
+
+.generators-container {
+  background: url('/scroll-texture.jpg') repeat;
+  background-color: #fdf6e3;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  font-family: "Cinzel", serif;
+  color: #3b2f1d;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  max-width: 800px;
+  margin: 2rem auto;
+  overflow-x: hidden;
+}
+
+.generators-container h1,
+.generators-container h2 {
+  font-family: "Cinzel Decorative", serif;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  color: #5a3825;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+/* Form layout */
+.form-group {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #3b2f1d;
+}
+
+.form-group select,
+.form-group input[type="number"],
+.form-group textarea {
+  padding: 0.6rem 1rem;
+  border: 2px solid #bfa76f;
+  border-radius: 6px;
+  background-color: #fdf5dc;
+  font-family: 'Spectral', serif;
+  font-size: 1rem;
+  color: #3b2f1d;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Inline fields for top_k and echoes */
+.form-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.generators-container .topk-inline {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.generators-container .topk-inline label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #3b2f1d;
+  margin-bottom: 0.4rem;
+}
+
+.generators-container .topk-inline input {
+  padding: 0.5rem;
+  border: 2px solid #bfa76f;
+  border-radius: 4px;
+  background-color: #fdf5dc;
+  font-family: 'Spectral', serif;
+  font-size: 1rem;
+  color: #3b2f1d;
+  width: 100%;
+}
+
+/* Button */
+button[type='submit'] {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  background-color: #7b2d26;
+  color: #fefcf8;
+  border: 2px solid #3b1f15;
+  font-family: "Cinzel", serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type='submit']:hover:not(:disabled) {
+  background-color: #a33327;
+}
+
+button[type='submit']:disabled {
+  background-color: #5c1f1a;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Error message */
+.error-message {
+  color: #8b0000;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem;
+  border-left: 5px solid #8b0000;
+  font-weight: 700;
+  margin-top: 1rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Response display */
+.response-container {
+  margin-top: 1.5rem;
+  background-color: #f5f0d6;
+  border: 2px solid #bfa76f;
+  border-radius: 8px;
+  padding: 1.5rem;
+  font-family: 'Spectral', serif;
+  font-size: 1rem;
+  color: #3b2f1d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.response-container h3 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.4rem;
+  color: #5a3825;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #bfa76f;
+  padding-bottom: 0.3rem;
+}
+
+.oracle-answer {
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.inline-form {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start; /* aligns top of blocks */
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.form-block {
+  display: flex;
+  flex-direction: column;
+  font-family: "Spectral", serif;
+  color: #3b2f1d;
+  flex: 1;
+  min-width: 180px;
+}
+
+.form-block.small {
+  max-width: 160px;
+}
+
+.form-block label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+}
+
+.label-text {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.form-block select,
+.form-block input {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #bfa76f;
+  border-radius: 6px;
+  background-color: #fdf5dc;
+}
+
+.response-container {
+  margin-top: 1.5rem;
+  background-color: #f5f0d6;
+  border: 2px solid #bfa76f;
+  border-radius: 8px;
+  padding: 1.5rem;
+  font-family: 'Spectral', serif;
+  font-size: 1rem;
+  color: #3b2f1d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.response-container h3 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.5rem;
+  color: #5a3825;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #bfa76f;
+  padding-bottom: 0.3rem;
+}
+
+.oracle-answer-card {
+  background: #f9f7e8;
+  border: 1.5px solid #bfa76f;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: inset 0 0 6px rgba(191, 167, 111, 0.3);
+}
+
+.oracle-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+
+.oracle-key {
+  flex: 0 0 130px; /* fixed width for keys */
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  text-transform: capitalize;
+  color: #7b2d26;
+}
+
+.oracle-value {
+  flex: 1;
+  font-family: 'Spectral', serif;
+  white-space: pre-wrap;
+  line-height: 1.4;
+  color: #3b2f1d;
+}

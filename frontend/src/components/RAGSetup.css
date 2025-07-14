@@ -1,0 +1,69 @@
+.modal-content {
+  background: url('/scroll-texture.jpg') repeat;
+  background-color: #fdf7e3;
+  padding: 2.5rem 4rem;   /* nice left/right padding */
+  border: 8px solid #5a3825;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+  width: 700px;
+  max-width: 95%;
+  position: relative;
+  text-align: left;
+  font-family: 'Spectral', serif;
+  color: #3b2f1d;
+  user-select: text;
+  box-sizing: border-box;  /* important for padding */
+}
+
+/* Keep form groups aligned but add some left margin to inputs for breathing */
+.api-setup-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding-left: 0.25rem;   /* slight left indent for entire row */
+}
+
+/* Label same fixed width */
+.api-setup-group label {
+  width: 160px;
+  font-weight: 700;
+  color: #3b2f1d;
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  user-select: none;
+}
+
+/* Inputs get a bit of left padding */
+.api-setup-group input {
+  flex: 1;
+  padding: 0.65rem 1.2rem;   /* more left/right padding */
+  border: 2px solid #bfa76f;
+  border-radius: 6px;
+  background-color: #fdf5dc;
+  font-family: 'Spectral', serif;
+  font-size: 1rem;
+  color: #3b2f1d;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Center the button and limit width so it doesn’t hug left */
+.api-button[type='submit'] {
+  display: block;         /* ensures margin auto centers */
+  margin: 1.5rem auto 0;  /* top margin, auto horizontal */
+  padding: 0.85rem 2.5rem;
+  border-radius: 8px;
+  background-color: #7b2d26;
+  color: #fefcf8;
+  border: 2px solid #3b1f15;
+  font-family: "Cinzel", serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  max-width: 280px;      /* limits button width */
+  width: 100%;
+  box-sizing: border-box;
+}

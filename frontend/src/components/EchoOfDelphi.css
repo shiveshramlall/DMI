@@ -1,0 +1,202 @@
+/* EchoOfDelphi.css */
+
+.echo-container {
+  background: url('/scroll-texture.jpg') repeat;
+  background-color: #fdf7e3;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+  padding: 2rem 3rem;
+  box-sizing: border-box;
+  font-family: "Cinzel", serif;
+  color: #3b2f1d;
+  text-align: left;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-width: 100%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+
+.echo-container h1 {
+  font-family: "Cinzel Decorative", serif;
+  font-size: 2rem;
+  color: #5a3825;
+  margin-bottom: 0.75rem;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.echo-container p {
+  font-family: 'Spectral', serif;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600; /* bolder for readability */
+  line-height: 1.4;
+  color: #4a3a1a;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #3b2f1d;
+}
+
+.form-group textarea {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.form-group textarea,
+.form-group input[type="number"] {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 2px solid #bfa76f;
+  background-color: #fdf5dc;
+  font-family: 'Spectral', serif;
+  font-size: 1rem;
+  color: #3b2f1d;
+}
+
+button[type='submit'] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  background-color: #7b2d26;
+  color: #fefcf8;
+  border: 2px solid #3b1f15;
+  font-family: "Cinzel", serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type='submit']:hover:not(:disabled) {
+  background-color: #a33327;
+}
+
+button[type='submit']:disabled {
+  background-color: #5c1f1a;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.error-message {
+  color: #8b0000;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem;
+  border-left: 5px solid #8b0000;
+  font-weight: 700;
+  margin-top: 1rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.response-container {
+  margin-top: 1.5rem;
+  background-color: #f5f0d6;
+  border: 2px solid #bfa76f;
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: 'Spectral', serif;
+  font-size: 1rem;
+  color: #3b2f1d;
+  white-space: pre-wrap;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.response-container {
+  margin-top: 1.5rem;
+  background-color: #f5f0d6;
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-family: 'Spectral', serif;
+  font-size: 1rem;
+  color: #3b2f1d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.response-container h3 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.4rem;
+  color: #5a3825;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #bfa76f;
+  padding-bottom: 0.3rem;
+}
+
+.oracle-answer {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.oracle-references h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #4a3a1a;
+}
+
+.oracle-references ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.oracle-references li {
+  margin-bottom: 0.5rem;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-header label {
+  font-weight: 700;
+  color: #3b2f1d;
+  font-size: 1rem;
+  font-family: "Cinzel", serif;
+}
+
+.topk-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.topk-inline label {
+  margin-bottom: 0; 
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #3b2f1d;
+}
+
+.topk-inline input {
+  width: 40px;
+  padding: 0.4rem;
+  border: 2px solid #bfa76f;
+  border-radius: 4px;
+  background-color: #fdf5dc;
+  font-family: 'Spectral', serif;
+  font-size: 1rem;
+  color: #3b2f1d;
+}

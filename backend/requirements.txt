@@ -1,0 +1,8 @@
+flask
+openai
+instructor
+langchain-community
+chromadb
+langchain
+ollama
+flask-cors

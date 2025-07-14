@@ -49,12 +49,21 @@ class GeneratedName(BaseModel):
 
 class NPCList(BaseModel):
     NPCs: List[NPC]
-    
-class PuzzleList(RootModel[List[Puzzle]]): pass
-class LocationList(RootModel[List[Location]]): pass
-class ItemList(RootModel[List[Item]]): pass
-class RumourList(RootModel[List[Rumour]]): pass
-class GeneratedNameList(RootModel[List[GeneratedName]]): pass
+
+class LocationList(BaseModel):
+    locations: List[Location]
+
+class PuzzleList(BaseModel):
+    puzzles: List[Puzzle]
+
+class ItemList(BaseModel):
+    items: List[Item]
+
+class RumourList(BaseModel):
+    rumours: List[Rumour]  
+
+class GeneratedNameList(BaseModel):
+    names: List[GeneratedName]
 
 class InstructorAssistant:
 
@@ -70,7 +79,7 @@ class InstructorAssistant:
 
     def build_prompt(
         self,
-        question: str,
+        query: str,
         context: str,
     ) -> str:
         return f"""
@@ -78,7 +87,7 @@ class InstructorAssistant:
         You are a virtual assistant for a Dungeon Master running Dungeons & Dragons (D&D) sessions.
 
         - Helping prepare and run sessions by providing ideas, rules clarifications, encounter design, and narrative suggestions.
-        - Answering questions using provided campaign documents, focusing only on the relevant content.
+        - Answering queries using provided campaign documents, focusing only on the relevant content.
         - If no documents are provided, rely on your general D&D knowledge (primarily 5th Edition unless specified).
 
         Be accurate, concise, and helpful. Prioritize clarity when referencing documents. Prioritize clarity and creativity when assisting with gameplay and storytelling.
@@ -91,17 +100,17 @@ class InstructorAssistant:
 
         ==================
         Query:
-        {question}
+        {query}
         ==================
         """
 
     def ask(
         self,
-        question: str,
+        query: str,
         context: str,
         response_model: Type[T],
     ):
-        prompt = self.build_prompt(question, context)
+        prompt = self.build_prompt(query, context)
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[{"role": "user", "content": prompt}],
