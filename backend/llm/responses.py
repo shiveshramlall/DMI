@@ -85,8 +85,10 @@ class InstructorAssistant:
                 draft_model=LlamaPromptLookupDecoding(num_pred_tokens=2),
                 logits_all=True,
                 verbose=False,
-                low_vram=True
+                low_vram=True,
+                f16_kv=True,
             )
+
 
             self.create = instructor.patch(
                         create=llama.create_chat_completion_openai_v1,

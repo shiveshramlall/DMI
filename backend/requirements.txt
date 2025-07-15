@@ -5,5 +5,4 @@ chromadb
 langchain
 ollama
 flask-cors
-llama-cpp-python
 llama-cpp-python -C cmake.args="-DGGML_CUDA=on"
