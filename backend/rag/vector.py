@@ -1,7 +1,6 @@
 import os
 import re
 import shutil
-import uuid
 from chromadb import PersistentClient
 import ollama
 from langchain.text_splitter import MarkdownHeaderTextSplitter

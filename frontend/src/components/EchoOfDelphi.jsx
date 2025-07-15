@@ -32,7 +32,7 @@ function EchoOfDelphi() {
 
             setResponse(res.data);
         } catch (err) {
-            // Show error message from backend or generic message
+
             setError(err.response?.data?.error || err.message || 'Error asking query.');
         } finally {
             setLoading(false);
@@ -41,22 +41,18 @@ function EchoOfDelphi() {
     };
 
     return (
-        <div className="echo-container">
-            <>
-                {/* <h1>Echo of Delphi</h1>
-                <p>You find yourself staring into the Echo of Delphi. Perched on the slopes of Mount Parnassus<br />
-                    Surrounded by white marble columns, elaborate, but forgotten, temples. You find yourself staring into a pool of knowledge before you...</p> */}
+        <div className="query-container">
 
-                <h1>Echo of Delphi</h1>
-                <p className="page_description">
-                    You ascend the slopes of Mount Parnassus, where white marble columns rise from crumbling, forgotten temples.<br />
-                    Amid the ruins, you find the Echo of Delphi. A still, luminous pool of ancient knowledge.<br />
-                    As you gaze into its depths, distant voices stir… whispering of all that has been forgotten,<br />
-                    and all that has yet to be revealed...
-                </p>
-            </>
+            <h1>Echo of Delphi</h1>
+            <p className="page_description">
+                You ascend the slopes of Mount Parnassus, where white marble columns rise from crumbling, forgotten temples.<br />
+                Amid the ruins, you find the Echo of Delphi. A still, luminous pool of ancient knowledge.<br />
+                As you gaze into its depths, distant voices stir… whispering of all that has been forgotten,<br />
+                and all that has yet to be revealed...
+            </p>
+
             <form onSubmit={handleAsk}>
-                <div className="form-header">
+                <div className="query-form-header">
                     <label htmlFor="query">What wisdom do you seek?</label>
                     <div className="topk-inline">
                         <label htmlFor="topK">Echoes to Consult:</label>
@@ -65,14 +61,14 @@ function EchoOfDelphi() {
                             id="topK"
                             value={topK}
                             min={1}
-                            max={20}
+                            max={30}
                             onChange={(e) => setTopK(Number(e.target.value))}
                             required
                         />
                     </div>
                 </div>
 
-                <div className="form-group">
+                <div className="query-form-text">
                     <textarea
                         id="query"
                         value={query}
@@ -88,19 +84,18 @@ function EchoOfDelphi() {
                 </button>
             </form>
 
-
             {error && <p className="error-message">{error}</p>}
 
             {response && (
-                <div className="response-container">
+                <div className="query-response-container">
                     <h3>🜄 Oracle’s Insight</h3>
 
-                    <div className="oracle-answer">
+                    <div className="query-answer">
                         <ReactMarkdown>{response.answer}</ReactMarkdown>
                     </div>
 
                     {response.references && response.references.length > 0 && (
-                        <div className="oracle-references">
+                        <div className="query-references">
                             <h4>↳ Echoes:</h4>
                             <ul>
                                 {response.references.map((ref, index) => (

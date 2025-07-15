@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import './RAGSetup.css';
-
 
 function RAGSetup({ onSuccess }) {
 
@@ -15,16 +14,15 @@ function RAGSetup({ onSuccess }) {
 
     const apiSetup = async () => {
         try {
-            setError(null); // Clear previous errors
+            setError(null); 
             const response = await axios.post('http://localhost:5000/setup', {
-                modelChat,
-                modelEmbed,
-                mdSource
+                'model_chat': modelChat,
+                'model_embed': modelEmbed,
+                'source_dir': mdSource
             });
             console.log('Setup response:', response.status);
             if (response.status === 200) {
-                alert('RAG setup successful!');
-                if (onSuccess) onSuccess(); 
+                if (onSuccess) onSuccess(mdSource);
             } else {
                 setError(response.data.error || 'Setup failed.');
             }
@@ -37,7 +35,7 @@ function RAGSetup({ onSuccess }) {
 
         event.preventDefault(); // Prevent default form submission behavior
 
-        setError(''); 
+        setError('');
         if (!modelChat || !modelEmbed || !mdSource) {
             setError('Please provide all inputs.');
             return;
@@ -54,17 +52,16 @@ function RAGSetup({ onSuccess }) {
 
     };
 
-    
     return (
-        <div className="api-setup-container">
+        <div className="setup-container">
             <h1>At the Foothills of Parnassus</h1>
             <p>
-            Echoes stir within your soul as the mist parts before you. The path to Mount Parnassus reveals itself... a sacred summit that yields only to purpose.
+                Echoes stir within your soul as the mist parts before you. The path to Mount Parnassus reveals itself... a sacred summit that yields only to purpose.
             </p>
             <h2>Awaken your Echo Source</h2>
             {error && <p className="error-message">{error}</p>}
             <form onSubmit={handleSubmit}>
-                <div className="api-setup-group">
+                <div className="setup-group">
                     <label htmlFor="modelChat">Model for Chat:</label>
                     <input
                         type="text"
@@ -74,7 +71,7 @@ function RAGSetup({ onSuccess }) {
                         required
                     />
                 </div>
-                <div className="api-setup-group">
+                <div className="setup-group">
                     <label htmlFor="modelEmbed">Model for Embedding:</label>
                     <input
                         type="text"
@@ -84,7 +81,7 @@ function RAGSetup({ onSuccess }) {
                         required
                     />
                 </div>
-                <div className="api-setup-group">
+                <div className="setup-group">
                     <label htmlFor="mdSource">Markdown Files Location:</label>
                     <input
                         type="text"
@@ -94,7 +91,7 @@ function RAGSetup({ onSuccess }) {
                         required
                     />
                 </div>
-                <button type="submit" disabled={loading} className="api-button">
+                <button type="submit" disabled={loading} className="setup-button">
                     {loading ? "Awakening..." : "Awake"}
                 </button>
             </form>

@@ -1,21 +1,17 @@
-/* === App.css === */
-
-/* === Import fantasy fonts from Google === */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative&family=Spectral&display=swap');
 
 input,
 select,
 textarea {
-  font-family: 'Spectral', serif; /* or your chosen font */
-  font-size: 1rem;               /* uniform font size */
-  color: #3b2f1d;               /* text color */
+  font-family: 'Spectral', serif; 
+  font-size: 1rem;               
+  color: #3b2f1d;               
 }
 
-h1, h2, h3, .echo-container p.page_description {
+h1, h2, h3, p.page_description {
   text-align: center;
 }
 
-/* Main app container with fantasy font and parchment background */
 html, body, #root {
   background: url('/parchment-scroll.jpg') repeat;
   background-color: #fdf7e3;
@@ -28,8 +24,12 @@ html, body, #root {
   box-sizing: border-box;
 }
 
-/* Dark translucent overlay to create a magical mist effect */
-.modal-overlay {
+.app-root {
+  display: flex;
+  height: 100vh;
+}
+
+.load-config-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -42,7 +42,49 @@ html, body, #root {
   z-index: 999;
 }
 
-/* Submit button shared across app */
+.load-config-content {
+  background: url('/scroll-texture.jpg') repeat;
+  background-color: #fdf7e3;
+  padding: 2.5rem 4rem;   
+  border: 8px solid #5a3825;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+  width: 700px;
+  max-width: 95%;
+  position: relative;
+  text-align: left;
+  font-family: 'Spectral', serif;
+  color: #3b2f1d;
+  user-select: text;
+  box-sizing: border-box;  
+}
+
+.error-message {
+  color: #8b0000;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem;
+  border-left: 5px solid #8b0000;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.current-page-content {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 250px;
+  transition: margin-left 0.3s;
+  font-weight: 600;
+  font-family: 'Spectral', serif;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.sidebar.collapsed ~ .current-page-content {
+  margin-left: 60px;
+}
+
 button[type='submit'] {
   width: 100%;
   padding: 0.75rem;
@@ -56,42 +98,12 @@ button[type='submit'] {
   transition: background-color 0.3s ease;
 }
 
-button[type='submit']:hover {
+button[type='submit']:hover:not(:disabled) {
   background-color: #a33327;
 }
 
-/* Error message styled as a cursed warning with red border and background */
-.error-message {
-  color: #8b0000;
-  background-color: rgba(255, 255, 255, 0.6);
-  padding: 0.5rem;
-  border-left: 5px solid #8b0000;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  border-radius: 4px;
-  text-align: center;
+button[type='submit']:disabled {
+  background-color: #5c1f1a;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
-
-/* Sidebar and main content layout */
-.app-root {
-  display: flex;
-  height: 100vh;
-}
-
-/* Main content takes remaining space and has padding */
-.main-content {
-  flex: 1;
-  padding: 2rem;
-  margin-left: 250px;
-  transition: margin-left 0.3s;
-  font-weight: 600;
-  font-family: 'Spectral', serif;
-  min-width: 0;
-  overflow-x: hidden;
-}
-
-/* Shift content left when sidebar is collapsed */
-.sidebar.collapsed ~ .main-content {
-  margin-left: 60px;
-}
-

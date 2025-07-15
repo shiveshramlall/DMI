@@ -10,35 +10,47 @@ function App() {
 
     const [currentPage, setCurrentPage] = useState('Echo of Delphi'); // Default page
 
+    const [mdSource, setMdSource] = useState('');
+
     const renderContent = () => {
         switch (currentPage) {
             case 'Echo of Delphi':
                 return <EchoOfDelphi />;
             case 'Echo Forge':
                 return <EchoForge />;
-            case 'Rekindle the Echoes':
-                return <RAGSetup onSuccess={() => setSetupComplete(true)} />;
             default:
-                return <p>Welcome!</p>;
+                return <p>A wrong slip and now you find yourself in Tartarus...!</p>;
         }
+    };
+
+    const getFolderName = (fullPath) => {
+        if (!fullPath) return '';
+        const parts = fullPath.split(/[/\\]+/); // handles both \ and /
+        return parts[parts.length - 1];
     };
 
     return (
         <div className="app-root">
 
             {!setupComplete || currentPage === 'Rekindle the Echoes' ? (
-                <div className="modal-overlay">
-                    <div className="modal-content">
-                        <RAGSetup onSuccess={() => {
+                <div className="load-config-overlay">
+                    <div className="load-config-content">
+                        <RAGSetup onSuccess={(mdSource) => {
                             setSetupComplete(true);
-                            setCurrentPage('Echo of Delphi'); 
+                            setMdSource(getFolderName(mdSource));
+                            console.log('RAG setup successful, source path:', mdSource);
+                            setCurrentPage('Echo of Delphi');
                         }} />
                     </div>
                 </div>
             ) : setupComplete && (
                 <>
-                    <Sidebar currentPage={currentPage} onNavigate={setCurrentPage} />
-                    <div className="main-content">
+                    <Sidebar
+                        currentPage={currentPage}
+                        onNavigate={setCurrentPage}
+                        markdownSource={mdSource}
+                    />
+                    <div className="current-page-content">
                         {renderContent()}
                     </div>
                 </>

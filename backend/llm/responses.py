@@ -1,7 +1,9 @@
-from openai import OpenAI
 from pydantic import BaseModel, Field, RootModel
 from typing import List, Type, TypeVar
 import instructor
+import os
+import llama_cpp
+from llama_cpp.llama_speculative import LlamaPromptLookupDecoding
 
 T = TypeVar("T", bound=BaseModel)
 
@@ -70,11 +72,37 @@ class InstructorAssistant:
     def __init__(
         self,
         model: str,
-        base_url: str = "http://localhost:11434/v1",
-        api_key: str = "ollama",
-    ):
-        openai_client = OpenAI(base_url=base_url, api_key=api_key)
-        self.client = instructor.from_openai(openai_client, mode=instructor.Mode.JSON)
+    ): 
+         
+        if model.lower() == "custom":
+            print("Using custom model with llama_cpp")
+            llama = llama_cpp.Llama(
+                model_path=r"C:\Users\shive\.lmstudio\models\lmstudio-community\Mistral-7B-Instruct-v0.3-GGUF\Mistral-7B-Instruct-v0.3-Q4_K_M.gguf",
+                n_gpu_layers=-1,
+                chat_format="chatml",
+                n_batch = 512,
+                n_ctx=8192,
+                draft_model=LlamaPromptLookupDecoding(num_pred_tokens=2),
+                logits_all=True,
+                verbose=False,
+                low_vram=True
+            )
+
+            self.create = instructor.patch(
+                        create=llama.create_chat_completion_openai_v1,
+                        mode=instructor.Mode.JSON_SCHEMA,
+                    )
+
+        else:
+
+            print(f"Using instructor model from ollama: {model}")
+            client = instructor.from_provider(
+                "ollama/"+model,
+                mode=instructor.Mode.JSON,
+            )
+
+            self.create = client.chat.completions.create
+
         self.model = model
 
     def build_prompt(
@@ -111,9 +139,11 @@ class InstructorAssistant:
         response_model: Type[T],
     ):
         prompt = self.build_prompt(query, context)
-        response = self.client.chat.completions.create(
-            model=self.model,
+
+        response = self.create(
             messages=[{"role": "user", "content": prompt}],
             response_model=response_model,
+            max_retries=5,
         )
+
         return response

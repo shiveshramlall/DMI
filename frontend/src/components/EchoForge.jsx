@@ -53,16 +53,16 @@ function Generators() {
   };
 
   return (
-    <div className="echo-container">
+    <div className="gen-container">
       <h1>Echo Forge</h1>
       <p className="page_description">You wander into the Echo Forge, deep beneath Mount Parnassus, where Hephaestus’s eternal fires blaze.<br />
       Sparks fly as the divine smith molds new life, while the Fates thread their needles into it.<br />
       Oval shapes of blue energy radiate before you...</p>
 
-      <div className="form-header inline-form">
-        <div className="form-block">
+      <div className="gen-form-header inline-form">
+        <div className="gen-form-block">
           <label>
-            <span className="label-text">Cast your desire into the flame</span>
+            <span className="gen-selector">Cast your desire into the flame</span>
             <select
               value={generator}
               onChange={(e) => setGenerator(e.target.value)}
@@ -76,9 +76,9 @@ function Generators() {
           </label>
         </div>
 
-        <div className="form-block small">
+        <div className="gen-form-block small">
           <label>
-            <span className="label-text">Past Echoes</span>
+            <span className="gen-selector">Past Echoes</span>
             <input
               type="number"
               value={echoes}
@@ -90,7 +90,7 @@ function Generators() {
         </div>
       </div>
 
-      <div className="form-group">
+      <div className="gen-form-text">
         <label htmlFor="query">Let your words strike the anvil, and that the fates may hear...</label>
         <textarea
           id="query"
@@ -112,17 +112,17 @@ function Generators() {
       {error && <div className="error-message">{error}</div>}
 
       {results.length > 0 && (
-        <div className="response-container">
+        <div className="gen-response-contianer">
           <h3>🜂 Your creations await</h3>
           {results.map((res, idx) => (
-            <div key={idx} className="oracle-answer-card">
+            <div key={idx} className="gen-answer-card">
               {typeof res === "string" ? (
                 <p>{res}</p>
               ) : res && typeof res === "object" ? (
                 Object.entries(res).map(([key, value]) => (
-                  <div key={key} className="oracle-row">
-                    <span className="oracle-key">{key}:</span>
-                    <span className="oracle-value">
+                  <div key={key} className="gen-answer-row">
+                    <span className="gen-answer-key">{key}:</span>
+                    <span className="gen-answer-value">
                       {typeof value === "string" && value.includes("\n") ? (
                         <ReactMarkdown>{value}</ReactMarkdown>
                       ) : (
