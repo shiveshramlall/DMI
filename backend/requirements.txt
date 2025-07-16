@@ -1,8 +1,8 @@
-flask
-instructor
-langchain-community
-chromadb
-langchain
-ollama
-flask-cors
-llama-cpp-python -C cmake.args="-DGGML_CUDA=on"
+chromadb==1.0.15
+flask==3.1.1
+flask-cors==6.0.1
+instructor==1.9.2
+langchain==0.3.26
+langchain-community==0.3.27
+llama-cpp-python==0.3.13 -C cmake.args="-DGGML_CUDA=on"
+ollama==0.5.1
