@@ -1,0 +1,48 @@
+.setup-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding-left: 0.25rem;  
+}
+
+.setup-group label {
+  width: 160px;
+  font-weight: 700;
+  color: #3b2f1d;
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  user-select: none;
+}
+
+.setup-group input {
+  flex: 1;
+  padding: 0.65rem 1.2rem;   
+  border: 2px solid #bfa76f;
+  border-radius: 6px;
+  background-color: #fdf5dc;
+  font-family: 'Spectral', serif;
+  font-size: 1rem;
+  color: #3b2f1d;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.setup-button[type='submit'] {
+  display: block;         
+  margin: 1.5rem auto 0;  
+  padding: 0.85rem 2.5rem;
+  border-radius: 8px;
+  background-color: #7b2d26;
+  color: #fefcf8;
+  border: 2px solid #3b1f15;
+  font-family: "Cinzel", serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  max-width: 280px;      
+  width: 100%;
+  box-sizing: border-box;
+}

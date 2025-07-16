@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative&family=Spectral&display=swap');
+
+input,
+select,
+textarea {
+  font-family: 'Spectral', serif; 
+  font-size: 1rem;               
+  color: #3b2f1d;               
+}
+
+h1, h2, h3, p.page_description {
+  text-align: center;
+}
+
+html, body, #root {
+  background: url('/parchment-scroll.jpg') repeat;
+  background-color: #fdf7e3;
+  background-blend-mode: multiply;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.app-root {
+  display: flex;
+  height: 100vh;
+}
+
+.load-config-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.6), rgba(30, 0, 0, 0.9));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.load-config-content {
+  background: url('/scroll-texture.jpg') repeat;
+  background-color: #fdf7e3;
+  padding: 2.5rem 4rem;   
+  border: 8px solid #5a3825;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+  width: 700px;
+  max-width: 95%;
+  position: relative;
+  text-align: left;
+  font-family: 'Spectral', serif;
+  color: #3b2f1d;
+  user-select: text;
+  box-sizing: border-box;  
+}
+
+.error-message {
+  color: #8b0000;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem;
+  border-left: 5px solid #8b0000;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.current-page-content {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 250px;
+  transition: margin-left 0.3s;
+  font-weight: 600;
+  font-family: 'Spectral', serif;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.sidebar.collapsed ~ .current-page-content {
+  margin-left: 60px;
+}
+
+button[type='submit'] {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #7b2d26;
+  color: #fefcf8;
+  border: 2px solid #3b1f15;
+  border-radius: 8px;
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type='submit']:hover:not(:disabled) {
+  background-color: #a33327;
+}
+
+button[type='submit']:disabled {
+  background-color: #5c1f1a;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
