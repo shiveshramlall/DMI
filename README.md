@@ -68,7 +68,7 @@ dmi/
     │   └── App.jsx        # Main app
     └── public/            # Static assets
 ```
-> More details are are provided in backend/README.md and frontend.md
+> More details are provided in backend/README.md and frontend.md
 
 ## Example - Echo of Delphi
 
