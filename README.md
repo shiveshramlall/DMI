@@ -1,6 +1,9 @@
 # DMI (Dungeon Master Intelligence)
 
-DMI is an AI-powered assistant for Dungeon Masters running D&D games. It combines RAG (Retrieval-Augmented Generation) with LLMs to provide intelligent responses from your campaign documents and generate D&D ideas, inspiration and content.
+
+DMI is a Gen-AI powered assistant for Dungeon Masters running D&D games. It combines RAG (Retrieval-Augmented Generation) with LLMs to provide responses from your campaign documents and generate D&D ideas, inspiration and content.
+
+## Technologies Used
 
 ### Backend
 - Flask for API server
@@ -20,14 +23,14 @@ DMI is an AI-powered assistant for Dungeon Masters running D&D games. It combine
 
 ## Features
 
-### 🎭 Echo of Delphi
-- AI-powered question answering about your campaign
+### Echo of Delphi
+- Gen-AI powered question answering about your campaign
 - Context-aware responses using your campaign documents
 - Source references for answers
-- Adjustable context depth
+- Adjustable context length for questions
 - Can be used to help supplement the writing process of adventures
 
-### ⚒️ Echo Forge
+### Echo Forge
 - Generate D&D content with campaign context:
   - NPCs with personalities and secrets
   - Locations with descriptions and rumors
@@ -36,7 +39,7 @@ DMI is an AI-powered assistant for Dungeon Masters running D&D games. It combine
   - Local rumors and plot hooks
   - Fantasy names with cultural context
 
-### 📚 RAG System
+### RAG System
 - Document indexing and retrieval using ChromaDB
 - Markdown-based campaign document integration
 - Smart context selection for queries
@@ -51,53 +54,11 @@ DMI is an AI-powered assistant for Dungeon Masters running D&D games. It combine
 - CUDA-capable GPU (optional, for local models)
 - Ollama or local GGUF models
 
-### Installation
-
-1. Clone the repository:
-```bash
-git clone [your-repo-url]
-cd dmi
-```
-
-2. Set up the backend:
-```bash
-cd backend
-pip install -r requirements.txt
-```
-
-3. Set up the frontend:
-```bash
-cd frontend
-npm install
-```
-
-### Configuration
-
-1. Start Ollama and download models:
-```bash
-ollama pull mxbai-embed-large
-ollama pull llama3.1:8b
-```
-
-2. Start the backend server:
-```bash
-cd backend
-python server.py
-```
-
-3. Start the frontend:
-```bash
-cd frontend
-npm run dev
-```
-
-4. Access the UI at `http://localhost:5173`
-
 ## Project Structure
 
 ```
 dmi/
-├── backend/                # Flask server and AI components
+├── backend/               # Flask server and AI components
 │   ├── llm/               # LLM interaction models
 │   ├── rag/               # RAG implementation
 │   └── server.py          # Flask API
@@ -107,36 +68,7 @@ dmi/
     │   └── App.jsx        # Main app
     └── public/            # Static assets
 ```
-
-## Technologies Used
-
-### Backend
-- Flask for API server
-- ChromaDB for vector storage
-- Instructor for structured LLM outputs
-- Langchain for document processing
-- Ollama/llama.cpp for LLM inference
-
-### Frontend
-- React with Vite
-- Axios for API calls
-- Custom themed CSS
-- React Markdown
-- Lucide icons
-
-## Development
-
-### Backend Development
-```bash
-cd backend
-python server.py
-```
-
-### Frontend Development
-```bash
-cd frontend
-npm run dev
-```
+> More details are are provided in backend/README.md and frontend.md
 
 ## Example - Echo of Delphi
 

@@ -4,11 +4,11 @@ A React-based frontend for Dungeon Master Intelligence (DMI), providing an intui
 
 ## Features
 
-- 🎭 **Echo of Delphi**: AI-powered question answering about your campaign
-- ⚒️ **Echo Forge**: Generate NPCs, locations, items, and more
-- 📚 **RAG Integration**: Direct connection to your campaign documents
-- 🎨 **Themed Interface**: D&D-inspired design with scroll textures and fantasy typography
-- 📱 **Responsive Layout**: Collapsible sidebar and adaptive content areas
+- **Echo of Delphi**: AI-powered question answering about your campaign
+- **Echo Forge**: Generate NPCs, locations, items, and more
+- **RAG Integration**: Direct connection to your campaign documents
+- **Themed Interface**: D&D-inspired design with scroll textures and fantasy typography
+- **Responsive Layout**: Collapsible sidebar and adaptive content areas
 
 ## Getting Started
 
@@ -16,13 +16,13 @@ A React-based frontend for Dungeon Master Intelligence (DMI), providing an intui
 
 - Node.js 18+
 - npm or yarn
-- Backend server running (see ./backend README.md)
+- Backend server running (see ./backend/README.md)
 
 ### Installation
 
 1. Clone the repository:
 ```bash
-git clone [your-repo-url]
+git clone https://github.com/shiveshramlall/DMI.git
 cd dmi/frontend
 ```
 
@@ -43,7 +43,7 @@ The app will be available at `http://localhost:5173`
 ```
 frontend/
 ├── src/
-│   ├── components/         # React components
+│   ├── components/        # React components
 │   │   ├── EchoForge      # Content generation interface
 │   │   ├── EchoOfDelphi   # Question answering interface
 │   │   ├── RAGSetup       # Configuration component
@@ -71,28 +71,18 @@ frontend/
 ### Sidebar
 - Navigation between components
 - Collapsible interface
-- Campaign source indicator
+- Campaign source indicator and reloader
 
 ## Styling
 
 - Uses custom CSS with fantasy-themed design
 - Fonts: Cinzel, Cinzel Decorative, and Spectral
 - Scroll textures and parchment backgrounds
-- Responsive design with mobile considerations
-
-## Development
-
-### Available Scripts
-
-```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run preview  # Preview production build
-npm run lint     # Run ESLint
-```
 
 ## Dependencies
 
+- Windows 11 (not tested on any other OS)
+  - This should only really imapct how CUDA is setup if you wish to utilize custom configurations on your GPU, for the LLM model.
 - React 19.1.0
 - Vite 7.0.4
 - Axios for API calls
