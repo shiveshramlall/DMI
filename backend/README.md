@@ -19,24 +19,25 @@ Dungeon Master Intelligence (DMI) is a Flask-based backend service that provides
 
 ## Features
 
-- 📚 **RAG System**: Uses ChromaDB for document storage and retrieval
-- 🤖 **LLM Integration**: Supports both Ollama and llama.cpp models
-- 🎲 **D&D Content Generation**: NPCs, locations, items, puzzles, and more
-- 📝 **Campaign Document Integration**: Uses your markdown files as context
-- 🔍 **Smart Query System**: Retrieves relevant context for accurate responses
+- **RAG System**: Uses ChromaDB for document storage and retrieval
+- **LLM Integration**: Supports both Ollama and llama.cpp models
+- **D&D Content Generation**: NPCs, locations, items, puzzles, and more
+- **Campaign Document Integration**: Uses your markdown files as context
+- **Smart Query System**: Retrieves relevant context for accurate responses
 
 ## Configuration
 
 The system requires:
 - Source location of markdown files for campaign documents
-- An embedding model (download via Ollama)
-- A chat model (download via Ollama)
-  - Alternatively, a custom model can be ran with llama-cpp. You can download the gguf file via LMStudio. 
+- An embedding model (download via [Ollama](https://ollama.com/))
+- A chat model (download via [Ollama](https://ollama.com/))
+  - Alternatively, a custom model (a gguf file) can be ran with llama-cpp. You can download the gguf file via [LMStudio](https://lmstudio.ai/). 
   - Modify the llm/responses.py accordingly. Configuration will have to be tested and done on your machine.
 
 ### Custom Model Requirements
 - [CUDA](https://developer.nvidia.com/cuda-downloads)
-- [MS Build Tools](https://visualstudio.microsoft.com/downloads/?q=build+tools)
+- [MS Build Tools](https://visualstudio.microsoft.com/downloads/?q=build+tools) (the following should be setup at the minumum)
+
   - Desktop development with C++
   - CMake support and Windows 10/11 SDK
 > Note: I had to do a workaround to get this to run properly, as my CUDA toolset was not being detected properly
@@ -55,7 +56,7 @@ $env:CUDACXX="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.x\bin\nvcc.
 
 1. Clone the repository:
 ```bash
-git clone [your-repo-url]
+git clone https://github.com/shiveshramlall/DMI.git
 cd dmi/backend
 ```
 
