@@ -5,6 +5,7 @@ markdown_db
 test.md
 test2.py
 test.ipynb
+launch-*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
