@@ -180,21 +180,16 @@ class ChromaRag:
             except ollama._types.ResponseError as e:
                 logging.warning(e)
 
+                # Handling of long extractions, eg markdown tables with no headings to break it up
                 if("input length exceeds the context length" in str(e)):
 
                     for tw in textwrap.wrap(text, 1000):
-                        print(tw)
-                        print("=======")
+
                         embeddings = self.embed_text(tw)
                         self.collection.add(
                             ids=[id], embeddings=embeddings, documents=[tw], metadatas=[metadata]
                         )
 
-                # print(text)
-                # embeddings = self.embed_text(text)
-                # self.collection.add(
-                #     ids=[id], embeddings=embeddings, documents=[text], metadatas=[metadata]
-                # )
             except Exception as e:
                 logging.error(e)
 
