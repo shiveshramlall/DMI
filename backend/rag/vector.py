@@ -18,7 +18,8 @@ from chromadb import PersistentClient
 import ollama
 from langchain.text_splitter import MarkdownHeaderTextSplitter
 from langchain_community.document_loaders import TextLoader, DirectoryLoader
-
+import logging
+import textwrap
 
 class ChromaRag:
     """
@@ -171,10 +172,26 @@ class ChromaRag:
         """
 
         for text, metadata, id in chunk_triples:
-            embeddings = self.embed_text(text)
-            self.collection.add(
-                ids=[id], embeddings=embeddings, documents=[text], metadatas=[metadata]
-            )
+            try:
+                embeddings = self.embed_text(text)
+                self.collection.add(
+                    ids=[id], embeddings=embeddings, documents=[text], metadatas=[metadata]
+                )
+            except ollama._types.ResponseError as e:
+                logging.warning(e)
+
+                # Handling of long extractions, eg markdown tables with no headings to break it up
+                if("input length exceeds the context length" in str(e)):
+
+                    for tw in textwrap.wrap(text, 1000):
+
+                        embeddings = self.embed_text(tw)
+                        self.collection.add(
+                            ids=[id], embeddings=embeddings, documents=[tw], metadatas=[metadata]
+                        )
+
+            except Exception as e:
+                logging.error(e)
 
     def retrieve(self, query, k=5):
         """
@@ -193,7 +210,6 @@ class ChromaRag:
 
         query_embedding = self.embed_text(query)
         results = self.collection.query(query_embeddings=query_embedding, n_results=k)
-
         return results["documents"][0], results["ids"][0], results["metadatas"][0]
 
     def inspect_db(self, limit=None):

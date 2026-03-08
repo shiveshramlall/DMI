@@ -31,6 +31,9 @@ from llm import (
 import os
 from typing import Type, TypeVar
 from pydantic import BaseModel
+import logging
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 T = TypeVar("T", bound=BaseModel)
 
